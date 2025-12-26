@@ -1,0 +1,32 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "unicorn",
+    "import",
+    "simple-import-sort",
+    "playwright",
+    "prettier"
+  ],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:import/recommended",
+    "plugin:playwright/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/filename-case": "off",
+
+    "import/order": "off"
+  }
+}
