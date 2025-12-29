@@ -1,0 +1,14 @@
+{
+  "landing": {
+    "welcome": "Welcome to our website",
+    "description": "We provide the best services for you"
+  },
+  "buttons": {
+    "submit": "Submit",
+    "cancel": "Cancel"
+  },
+  "counter": {
+    "increment": "Increase",
+    "decrement": "Decrease"
+  }
+}

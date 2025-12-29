@@ -5,6 +5,6 @@ import { localizationMiddleware } from './src/features/internationalization/loca
 // Matcher ignoring `/_next/` and `/api/` and svg files.
 export const config = { matcher: ['/((?!api|_next|.*.svg$).*)'] };
 
-export const middleware = (request: NextRequest) => {
+export function middleware(request: NextRequest) {
   return localizationMiddleware(request);
-};
+}

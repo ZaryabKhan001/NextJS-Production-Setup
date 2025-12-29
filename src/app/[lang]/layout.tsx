@@ -1,4 +1,4 @@
-import './globals.css';
+import '../globals.css';
 
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
@@ -23,14 +23,18 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = {
   children: ReactNode;
-  params: { lang: Locale } | Promise<any>;
+  params: Promise<{ lang: string }>;
 };
 
-export default function RootLayout({ children, params }: RootLayoutProps) {
-  const lang = (params as any).lang as Locale;
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
+  const { lang } = (await params) as { lang: string };
+  const locale = lang as Locale;
 
   return (
-    <html lang={lang}>
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -1,0 +1,14 @@
+{
+  "landing": {
+    "welcome": "مرحبًا بكم في موقعنا",
+    "description": "نحن نقدم أفضل الخدمات لك"
+  },
+  "buttons": {
+    "submit": "إرسال",
+    "cancel": "إلغاء"
+  },
+  "counter": {
+    "increment": "زيادة",
+    "decrement": "إنقاص"
+  }
+}
