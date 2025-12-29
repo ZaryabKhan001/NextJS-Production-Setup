@@ -44,3 +44,4 @@ node_modules
 dist
 build
 coverage
+/app/generated/prisma
