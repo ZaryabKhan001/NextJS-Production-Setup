@@ -47,3 +47,10 @@ build
 coverage
 /generated/prisma
 generated
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
