@@ -11,6 +11,23 @@ export default [
   },
   // Start from the recommended JS config
   js.configs.recommended,
+  // Define console as read-only global to avoid "console is not defined" lint errors
+  {
+    files: ['**/*'],
+    languageOptions: {
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
+        fetch: 'readonly',
+        AbortController: 'readonly',
+        TextEncoder: 'readonly',
+        TextDecoder: 'readonly',
+        globalThis: 'readonly',
+      },
+    },
+  },
   {
     plugins: {
       unicorn,
