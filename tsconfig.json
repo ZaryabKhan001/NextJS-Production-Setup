@@ -27,7 +27,8 @@
       "@hooks/*": ["./src/shared/hooks/*"],
       "@libs/*": ["./src/shared/libs/*"],
       "@constants/*": ["./src/shared/constants/*"],
-      "@configs/*": ["./src/shared/configs/*"]
+      "@configs/*": ["./src/shared/configs/*"],
+      "@envs/*": ["./src/shared/envs/*"]
     }
   },
   "include": [
