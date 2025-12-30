@@ -1,4 +1,3 @@
-import { prisma } from '@lib/prisma';
 import {
   Card,
   CardContent,
@@ -6,10 +5,11 @@ import {
   CardTitle,
 } from '@shared/components/ui/card';
 
+import { retrieveUserProfileFromDatabaseByEmail } from '@/features/user-profile/user-profile.model';
+
 export default async function Dashboard() {
-  const user = await prisma.userProfile.findUnique({
-    where: { email: 'jan@reactsquad.io' },
-  });
+  const user =
+    await retrieveUserProfileFromDatabaseByEmail('jan@reactsquad.io');
 
   return (
     <Card className="mx-auto max-w-md">
