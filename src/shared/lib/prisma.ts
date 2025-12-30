@@ -1,7 +1,7 @@
-import { serverEnvironment } from '@envs/server.js';
+import { serverEnvironment } from '@envs/server';
 import { PrismaPg } from '@prisma/adapter-pg';
 
-import { PrismaClient } from '../../../generated/prisma/client.js';
+import { PrismaClient } from '../../../generated/prisma/client';
 
 const connectionString = serverEnvironment.DATABASE_URL;
 
