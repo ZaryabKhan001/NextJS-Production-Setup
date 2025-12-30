@@ -10,3 +10,5 @@ const dictionaries = {
 
 export const getDictionary = async (locale: Locale) =>
   dictionaries[locale]?.() ?? dictionaries['en-US']();
+
+export type Dictionary = Record<string, any>;

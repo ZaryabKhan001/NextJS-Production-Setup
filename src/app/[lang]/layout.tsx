@@ -4,7 +4,9 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import type { ReactNode } from 'react';
 
+import { getDictionary } from '@/features/internationalization/get-dictionaries';
 import { Locale } from '@/features/internationalization/i18n.config';
+import { DictionaryProvider } from '@/shared/context/DictionaryContext';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -32,13 +34,16 @@ export default async function RootLayout({
 }: RootLayoutProps) {
   const { lang } = (await params) as { lang: string };
   const locale = lang as Locale;
+  const dictionary = await getDictionary(locale);
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <DictionaryProvider dictionary={dictionary}>
+          {children}
+        </DictionaryProvider>
       </body>
     </html>
   );

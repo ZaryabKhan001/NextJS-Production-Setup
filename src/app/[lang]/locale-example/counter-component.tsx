@@ -1,23 +1,20 @@
 'use client';
 import React, { useState } from 'react';
 
-import { getDictionary } from '@/features/internationalization/get-dictionaries';
+import { useDictionary } from '@/shared/context/DictionaryContext';
 
-const Counter = ({
-  dictionary,
-}: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>['counter'];
-}) => {
+const Counter = () => {
   const [count, setCount] = useState(0);
+  const dictionary = useDictionary();
   return (
     <p>
       This component is rendered on client:
       <button onClick={() => setCount(n => n - 1)}>
-        {dictionary.decrement}
+        {dictionary.counter.decrement}
       </button>
       {count}
       <button onClick={() => setCount(n => n + 1)}>
-        {dictionary.increment}
+        {dictionary.counter.increment}
       </button>
     </p>
   );
