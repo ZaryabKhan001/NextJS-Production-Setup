@@ -14,7 +14,7 @@ const page = async ({ params }: pageProps) => {
   return (
     <div>
       <h1>Current Language: {lang}</h1>
-      <p>This text is rendered on the server: {dictionary.landing.welcome}</p>
+      <p>This text is rendered on the server: {dictionary.welcome_note}</p>
       <Counter />
     </div>
   );

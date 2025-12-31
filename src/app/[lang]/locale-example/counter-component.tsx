@@ -1,21 +1,18 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import { useDictionary } from '@/shared/context/DictionaryContext';
+import { useTranslate } from '@/shared/hooks/useTranslate';
 
 const Counter = () => {
   const [count, setCount] = useState(0);
-  const dictionary = useDictionary();
+  const { t } = useTranslate();
+
   return (
     <p>
       This component is rendered on client:
-      <button onClick={() => setCount(n => n - 1)}>
-        {dictionary.counter.decrement}
-      </button>
+      <button onClick={() => setCount(n => n - 1)}>{t('decrement')}</button>
       {count}
-      <button onClick={() => setCount(n => n + 1)}>
-        {dictionary.counter.increment}
-      </button>
+      <button onClick={() => setCount(n => n + 1)}>{t('increment')}</button>
     </p>
   );
 };

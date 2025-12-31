@@ -1,14 +1,12 @@
 {
-  "landing": {
-    "welcome": "مرحبًا بكم في موقعنا",
-    "description": "نحن نقدم أفضل الخدمات لك"
-  },
-  "buttons": {
-    "submit": "إرسال",
-    "cancel": "إلغاء"
-  },
-  "counter": {
-    "increment": "زيادة",
-    "decrement": "إنقاص"
-  }
+  "welcome_note": "مرحبًا بك في موقعنا",
+  "welcome_description": "نحن نقدم أفضل الخدمات لك",
+  "submit": "إرسال",
+  "cancel": "إلغاء",
+  "increment": "زيادة",
+  "decrement": "نقصان",
+  "global_error_message": "حدث خطأ ما",
+  "global_error_message_description": "حدث خطأ غير متوقع. تم إعلام فريقنا وهو يعمل على إصلاحه.",
+  "try_again": "حاول مرة أخرى",
+  "reload_page": "إعادة تحميل الصفحة"
 }
