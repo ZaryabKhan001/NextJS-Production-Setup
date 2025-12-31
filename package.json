@@ -13,6 +13,7 @@
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prepare": "husky",
     "test": "vitest --reporter=verbose",
+    "test:coverage": "vitest run --coverage --mode test",
     "prisma:deploy": "npx prisma migrate deploy && npx prisma generate",
     "prisma:migrate": "npx prisma migrate dev --name",
     "prisma:push": "npx prisma db push && npx prisma generate",
