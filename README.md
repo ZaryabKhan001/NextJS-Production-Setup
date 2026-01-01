@@ -1,49 +1,247 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with
-[`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NextJS Production Setup
 
-## Getting Started
+**A production-ready Next.js starter template** This repository provides a
+robust foundation for building scalable, secure, and maintainable Next.js
+applications — complete with modern tooling, developer experience enhancements,
+and best practices for deployment.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+### 🧩 Core
+
+- **Next.js** (App Router / TypeScript setup) — scalable and future-proof.
+- **TypeScript** support for strong typing and fewer runtime bugs.
+- **ESLint + Prettier** configuration for consistent code quality.
+- **Husky + Commitlint** pre-commit and pre-push hooks to enforce standards.
+
+### 🛠 Infrastructure & Tooling
+
+- **Dockerfile** included for production containerization.
+- **CI/CD Workflows** (GitHub Actions) — automated testing, linting, and
+  production deploys.
+- **Prisma** ORM with sample configuration for database integration.
+- **Vitest & RTL** for Unit Testing.
+- **Playwright** for end-to-end test automation.
+- **Sentry integration** (Edge & Server configs) for error monitoring and
+  observability.
+
+### ⚡ Developer Experience
+
+- Opinionated config files for scalable architecture.
+- **VSCode config** for consistent workspace setup.
+- **Utility scripts** for building & testing locally or in pipelines.
+
+---
+
+## 📦 Getting Started
+
+> Ensure you have [Node.js](https://nodejs.org) (16+ recommended), Docker, and
+> your preferred package manager (npm / yarn / pnpm) installed.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/ZaryabKhan001/NextJS-Production-Setup.git
+cd NextJS-Production-Setup
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### 3. Environment Variables
+
+Create a `.env` file from the provided example:
+
+```bash
+cp .env.example .env
+```
+
+Configure the values (database URL, API keys, Sentry DSN, etc.).
+
+---
+
+## 🧪 Local Development
+
+Run the development server with hot-reload:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the
-result.
+Open your browser at:
 
-You can start editing the page by modifying `app/page.tsx`. The page
-auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses
-[`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
-to automatically optimize and load [Geist](https://vercel.com/font), a new font
-family for Vercel.
+---
 
-## Learn More
+## 🧱 Database (Prisma)
 
-To learn more about Next.js, take a look at the following resources:
+Migrate your database using Prisma:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx prisma migrate dev --name init
+```
 
-You can check out
-[the Next.js GitHub repository](https://github.com/vercel/next.js) - your
-feedback and contributions are welcome!
+Generate Prisma client:
 
-## Deploy on Vercel
+```bash
+npx prisma generate
+```
 
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
+---
 
-Check out our
-[Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
-for more details.
+## 🧰 Linting & Formatting
+
+Check for linting issues:
+
+```bash
+npm run lint
+```
+
+Format code:
+
+```bash
+npm run format:fix
+```
+
+> Pre-commit checks are handled by **Husky** and **Commitlint**, ensuring
+> quality and conventional commits.
+
+---
+
+## 🧪 Testing
+
+### Playwright E2E
+
+```bash
+npm run test:e2e
+```
+
+### Vitest (if included)
+
+```bash
+npm run test
+```
+
+---
+
+## 📦 Production Build
+
+Build the optimized production app:
+
+```bash
+npm run build
+```
+
+Preview locally:
+
+```bash
+npm run start
+```
+
+The production build will output optimized assets, server functions, and static
+pages.
+
+---
+
+## 🐳 Docker
+
+### Build Docker Image
+
+```bash
+docker build -t nextjs-production .
+```
+
+### Run Container
+
+```bash
+docker run -p 3000:3000 nextjs-production
+```
+
+This is ideal for deployment via container platforms (AWS ECS, DigitalOcean App
+Platform, Fly.io, etc.).
+
+---
+
+## 📍 Deployment
+
+### Vercel (Recommended)
+
+Install the Vercel CLI and deploy:
+
+```bash
+npx vercel
+```
+
+Follow the prompts to connect your GitHub repo and configure environment
+variables. Vercel automatically builds and deploys your app on every push.
+([Next.js][1])
+
+### Other Platforms
+
+You can also deploy using:
+
+- **Docker host / Kubernetes**
+- **Netlify** or **AWS Amplify**
+- **Custom server / Node.js host** with:
+
+```bash
+npm run build
+npm run start
+```
+
+---
+
+## 🧠 Best Practices (Included)
+
+- **CI/CD workflows** run tests, linting, and builds on push.
+- **Commitlint** ensures semantic commit messages for version history.
+- **Monitoring & Logging** via Sentry integration.
+- Docker-optimized multi-stage builds for small production images.
+
+---
+
+## 🧩 Folder Structure
+
+- `.github/workflows` — CI/CD configs.
+- `.husky` — Git hooks.
+- `src/` — main app source (Next.js pages & components).
+- `prisma/` — schema + migrations.
+- `playwright/` — end-to-end tests.
+- `Dockerfile` — container definition.
+
+---
+
+## 🛡️ Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repo.
+2. Create a feature branch.
+3. Write tests & ensure formatting.
+4. Submit a pull request aligned with project conventions.
+
+---
+
+## 📜 License
+
+This project is **MIT Licensed** — feel free to use it in personal or commercial
+applications.
+
+---
+
+## 💬 Contact
+
+If you use this template — let me know! Provide feedback or open issues to
+improve this starter.
